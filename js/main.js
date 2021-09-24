@@ -145,23 +145,46 @@ $("#titulo").css("color", "red")
     })
   .slideDown(2000);
 
-// $.get("/productos.json", function(resultado,status) {
 
+
+
+  /**********todo comentado luego de intentar varias pruebas sin éxito */
+
+  /***Prueba Json1*** */
+// const elementoMpago = carrito.map(curso =>{
+//   return{"title": curso.nombre,
+//   "description": "abc",
+//   "picture_url": "null",
+//   "category_id": "hfjfgjff",
+//   "quantity": 2,
+//   "currency_id": "ARS",
+//   "unit_price": curso.precio,
+
+//   }
 // })
-const elemento =     { 
-  "items": [
-  {
-    
-    "title": "jgjgjgjg",
-    "description": "abc",
-    "picture_url": "null",
-    "category_id": "hfjfgjff",
-    "quantity": 2,
-    "currency_id": "ARS",
-    "unit_price": 11
-  }
+// const elemento = { "items": elementoMpago }
 
-]}
+
+/*****Prueba Json2**** */
+// const elemento = {
+//   "items": [
+//     {
+//       "title": "Dummy Title",
+//       "description": "Dummy description",
+//       "picture_url": "http://www.myapp.com/myimage.jpg",
+//       "category_id": "cat123",
+//       "quantity": 1,
+//       "currency_id": "U$",
+//       "unit_price": 10
+//     }
+//   ]
+
+// }
+  
+
+
+
+/*******Intento POST con JQUERY************ */
 
 // $.ajaxSetup({
 //     headers:{
@@ -175,65 +198,34 @@ const elemento =     {
 //       });
       
       
-let url = 'https://api.mercadopago.com/checkout/preferences'
-fetch(url,{
-  method: 'POST',
-  headers: {
-    'Authorizacion':'Bearer TEST-4669597304203976-092315-d2898d87b995fc50e14ca83e1fc2e609-657245350',
-    'Content-Type':'application/json',
-
-  },
-  body: JSON.stringify(elemento),
-}).then(response=>{return response.json()})
-.then(data => {
-  window.open(data.init_point, '_blank');
-})
-.catch(error => (console.log(error)))
 
 
 
-// $.get("productos.json",function(res){
-//     console.log(res)
-//     res.forEach(element => {
-//       console.log(element.id)
-//     });
-//   })
 
-// fetch('https://jsonplaceholder.typicode.com/todos/1')
-//   .then(response => response.json())
-//   .then(json => console.log(json))
-
-// fetch('https://api.mercadopago.com/checkout/preferences/search?',{
-//   method: 'GET',
-//   headers: {
-//     'Authorizacion': 'Bearer TEST-6840521048841844-092123-c20f188a80b9dd6524442be15420cfbf-657245350',
-//     'Content-Type': 'application/json'
-//   },
-// }).then(response=>{return response.json()})
-// .then(data => {
-// console.log(data)
-// })
-
-// const elemento = {
-//   "intent": "CAPTURE",
-//   "purchase_units": [
-//     {
-//       "amount": {
-//         "currency_code": "USD",
-//         "value": "100.00"
-//       }
-//     }
-//   ]
-// }
-
-// fetch('https://api-m.sandbox.paypal.com/v2/checkout/orders',{
+/************Intento POST Fetch*********************** */
+// let url = 'https://api.mercadopago.com/checkout/preferences'
+// fetch(url,{
 //   method: 'POST',
 //   headers: {
-//     'Authorizacion': 'Bearer TEST-6840521048841844-092123-c20f188a80b9dd6524442be15420cfbf-657245350',
-//     'Content-Type': 'application/json',
+//     'Authorizacion':'Bearer TEST-4669597304203976-092315-d2898d87b995fc50e14ca83e1fc2e609-657245350',
+//     'Content-Type':'application/json',
+
 //   },
 //   body: JSON.stringify(elemento),
 // }).then(response=>{return response.json()})
 // .then(data => {
 //   window.open(data.init_point, '_blank');
 // })
+// .catch(error => (console.log(error)))
+
+
+
+
+
+
+/***********Api Clima OK******************** */
+
+// $.getJSON("http://api.weatherunlocked.com/api/current/ar.R8400,-0.12?app_id=dfd05d5f&app_key=4fb61c73229358a83d4ddeab1a579714",function(res){
+//   $("#clima").append (res.temp_c + "ºC");
+// })
+// $("#clima").css("color", "#a7467c","font-weight","bold","margin : 10px")
